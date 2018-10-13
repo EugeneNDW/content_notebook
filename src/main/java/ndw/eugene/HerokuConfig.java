@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 public class HerokuConfig {
 
     @Bean
-    @Qualifier("heroku")
+    @Qualifier("ds")
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 

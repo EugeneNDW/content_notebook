@@ -18,7 +18,7 @@ public class NoteDAO{
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    NoteDAO(@Qualifier("heroku") DataSource dataSource) {
+    NoteDAO(@Qualifier("ds") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update("create table notes(id serial not null constraint notes_pkey primary key,\n" +
                 "  header varchar(255) not null , text varchar(1000) not null , isread boolean not null default false );");
