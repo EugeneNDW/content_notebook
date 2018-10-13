@@ -10,7 +10,6 @@ public class Note {
     private String text;
     private boolean isRead;
     private Date createTime;
-    private User user;
 
     public Note() {
         this.createTime = new Date();
@@ -68,13 +67,6 @@ public class Note {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @Override
     public String toString(){

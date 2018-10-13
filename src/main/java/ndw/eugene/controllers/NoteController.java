@@ -21,7 +21,7 @@ public class NoteController {
     private NoteService service;
 
     @Autowired
-    public NoteController(@Qualifier("listservice") NoteService service) {
+    public NoteController(@Qualifier("postgres") NoteService service) {
         this.service = service;
     }
 

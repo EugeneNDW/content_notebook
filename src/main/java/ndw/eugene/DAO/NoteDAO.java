@@ -2,6 +2,7 @@ package ndw.eugene.DAO;
 
 import ndw.eugene.domain.Note;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -17,13 +18,15 @@ public class NoteDAO{
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    NoteDAO(DataSource dataSource) {
+    NoteDAO(@Qualifier("heroku") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update("create table notes(id serial not null constraint notes_pkey primary key,\n" +
+                "  header varchar(255) not null , text varchar(1000) not null , isread boolean not null default false );");
     }
 
     public void addNote(Note note){
-        jdbcTemplate.update("insert into notes(header, text, isread, user_id) values (?,?,?,?)",
-                note.getHeader(), note.getText(), note.isRead(), note.getUser().getId());
+        jdbcTemplate.update("insert into notes(header, text, isread) values (?,?,?)",
+                note.getHeader(), note.getText(), note.isRead());
     }
 
     public List<Note> getNotesList(){
