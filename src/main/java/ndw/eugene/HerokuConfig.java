@@ -12,7 +12,6 @@ import java.net.URISyntaxException;
 public class HerokuConfig {
 
     @Bean
-    @Qualifier("ds")
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
@@ -21,10 +20,10 @@ public class HerokuConfig {
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("org.postgresql.Driver");
         basicDataSource.setUrl(dbUrl);
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
+
         return basicDataSource;
     }
 }
