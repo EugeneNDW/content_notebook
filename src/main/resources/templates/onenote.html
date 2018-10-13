@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>note</title>
+</head>
+
+<body>
+        <p th:text="'header: ' + ${note.header} + ' note: ' + ${note.text}">Sample Note</p>
+
+        <a th:href="'/note/edit/' + ${note.id}">edit</a>
+        <a th:href="'/note/delete/' + ${note.id}">delete</a>
+        <a th:href="'/note/mark/' + ${note.id} + '?isread=true'">mark read</a>
+        <a href="/note/all">all</a>
+</body>
+</html>

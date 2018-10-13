@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All notes</title>
+</head>
+<body>
+    <h1>Notes List</h1>
+    <ul>
+        <li th:each="note:${noteslist}">
+            <div class="note">
+                <div class="note-header" th:text="${note.header}"></div>
+                <div class="boolean-value" th:text="${note.isRead()}"></div>
+                <div class="note-text" th:text="${note.text}"></div>
+            </div>
+            <div class="note-links">
+                <a th:href="'/note/edit/' + ${note.id}">edit</a>
+                <a th:href="'/note/delete/' + ${note.id}">delete</a>
+                <a th:href="'/note/mark/' + ${note.id} + '?isread=true'">mark read</a>
+            </div>
+        </li>
+    </ul>
+    <br>
+    <a href="/note/create">Create new note</a>
+    <a href="/note/read?isread=true">Show only read notes</a>
+    <a href="/note/read?isread=false">Show only readnt notes</a>
+</body>
+</html>

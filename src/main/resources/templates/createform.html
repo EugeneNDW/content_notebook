@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create note</title>
+</head>
+<body>
+	<form action="/note/create" method="post">
+		<label>
+			Header:
+			<br>
+			<input type="text" name="header">
+		</label>
+		<br>
+		<br>
+		<label>Text:
+			<br>
+			<textarea id="text-area" name="text"></textarea>
+		</label>
+		<br>
+		<label>
+			Not read
+			<input type="radio" name="isRead" value="false">
+		</label>
+		<label>
+			Read
+			<input type="radio" name="isRead" value="true">
+		</label>
+		<br>
+		<input type="submit" name="button" value="create!">
+	</form>
+</body>
+</html>
