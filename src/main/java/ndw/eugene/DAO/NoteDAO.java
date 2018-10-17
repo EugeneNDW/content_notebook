@@ -20,8 +20,8 @@ public class NoteDAO{
     @Autowired
     NoteDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.update("create table notes(id serial not null constraint notes_pkey primary key,\n" +
-                "  header varchar(255) not null , text varchar(1000) not null , isread boolean not null default false );");
+//        jdbcTemplate.update("create table notes(id serial not null constraint notes_pkey primary key,\n" +
+//                "  header varchar(255) not null , text varchar(1000) not null , isread boolean not null default false );");
     }
 
     public void addNote(Note note){
