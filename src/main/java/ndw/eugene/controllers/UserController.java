@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
-@RequestMapping("/u")
-@SessionAttributes("user")
 public class UserController {
 
     private UserService userService;
