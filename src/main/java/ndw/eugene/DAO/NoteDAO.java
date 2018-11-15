@@ -3,9 +3,11 @@ package ndw.eugene.DAO;
 import ndw.eugene.domain.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -18,10 +20,8 @@ public class NoteDAO{
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    NoteDAO(DataSource dataSource) {
+    public NoteDAO(@Qualifier("postgres") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-//        jdbcTemplate.update("create table notes(id serial not null constraint notes_pkey primary key,\n" +
-//                "  header varchar(255) not null , text varchar(1000) not null , isread boolean not null default false );");
     }
 
     public void addNote(Note note){

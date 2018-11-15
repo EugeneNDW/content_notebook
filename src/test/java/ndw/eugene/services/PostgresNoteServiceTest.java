@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 class PostgresNoteServiceTest {
 
-    PostgresNoteService ps;
+    NoteService ps;
     NoteDAO nd;
 
 

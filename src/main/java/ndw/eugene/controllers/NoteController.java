@@ -5,6 +5,9 @@ import ndw.eugene.domain.User;
 import ndw.eugene.services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.websocket.server.PathParam;
 import javax.xml.soap.SAAJResult;
+import javax.xml.ws.Response;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/note")
@@ -80,5 +86,12 @@ public class NoteController {
     public String create(@ModelAttribute("note") Note note){
         service.addNote(note);
         return "redirect:all";
+    }
+
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String handle(DataAccessException e){
+        return "ErrorPages/500";
     }
 }
