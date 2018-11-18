@@ -32,7 +32,7 @@ public class DataSourceConfiguration {
         return ds;
     }
 
-
+    @Bean
     @Qualifier("heroku")
     public BasicDataSource herokuDataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));

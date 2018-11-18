@@ -20,7 +20,7 @@ public class NoteDAO{
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public NoteDAO(@Qualifier("postgres") DataSource dataSource) {
+    public NoteDAO(@Qualifier("heroku") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
