@@ -5,6 +5,7 @@ import ndw.eugene.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     private UserDAO userDAO;
@@ -18,7 +19,7 @@ public class UserService {
         userDAO.createUser(user);
     }
 
-    public User getUser(String login, String password){
-        return userDAO.getUserByLoginAndPassword(login,password);
+    public User getUserByLoginAndPassword(String login, String password){
+        return userDAO.getUserByLoginAndPassword(login, password);
     }
 }
