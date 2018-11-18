@@ -1,4 +1,4 @@
-package ndw.eugene.services;
+/*package ndw.eugene.services;
 
 import ndw.eugene.DAO.NoteDAO;
 import ndw.eugene.domain.Note;
@@ -84,4 +84,4 @@ class PostgresNoteServiceTest {
         assertEquals(0,ps.getAllRead(false).size());
     }
 
-}
+}*/
