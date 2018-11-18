@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Create note</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+  <title>Create note</title>
 </head>
 <body>
 	<form th:action="'/note/edit/'+${note.id}" method="post">
