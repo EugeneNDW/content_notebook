@@ -14,7 +14,7 @@ public class UserDAO {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public UserDAO(@Qualifier("postgres") DataSource dataSource) {
+    public UserDAO(@Qualifier("heroku") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
